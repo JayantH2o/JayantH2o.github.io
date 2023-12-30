@@ -18,6 +18,15 @@
 		    //el.object3D.position.y -=0.5;
 		                      });
                    }    });
+	 AFRAME.registerComponent('urlval',{
+       init: function () {
+	window.addEventListener('load', function (){       
+	const urlParams = new URLSearchParams(window.location.search);
+        const modelName = urlParams.get('model');
+        const selectedModel = document.getElementById('box');
+        selectedModel.setAttribute('gltf-model', `#${modelName}`);
+	});
+       }    });
  </script>
   </head>
   <body>
@@ -26,18 +35,9 @@
           <a-asset-item id="frescaveg" src="https://raw.githubusercontent.com/JayantH2o/Maven_Github/main/Fresca%20Veg.glb"></a-asset-item>
           </a-assets>
 		  <a-entity position="0 0 0" rotation="0 0 0" >
-         <a-entity id="box" gltf-model="" position="0 0 -2" rotation="0 0 0" scale="3 4 3" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: easeInQuad;"  touchscale>
+         <a-entity urlval id="box" gltf-model=""  position="0 0 -2" rotation="0 0 0" scale="3 4 3" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: easeInQuad;"  touchscale>
           </a-entity>
-        <script> 
-      function getURLParameter(name) {
-        var urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);}
-        var modelName = getURLParameter('model');
-        var selectedModel = document.getElementById('box');
-        selectedModel.setAttribute('gltf-model', `#${modelName}`);
-  
-        </script>
-		  </a-entity>
+	</a-entity>
     <a-camera>
     <a-cursor></a-cursor>
   </a-camera>

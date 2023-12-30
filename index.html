@@ -31,7 +31,7 @@
         <script> 
       function getURLParameter(name) {
         var urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
+        return urlParams.get(name);}
         var modelName = getURLParameter('model');
         var selectedModel = document.getElementById('box');
         selectedModel.setAttribute('gltf-model', `#${modelName}`);

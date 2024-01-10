@@ -1,7 +1,8 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/@ar-js-org/ar.js@3.4.5/aframe/build/aframe-ar.min.js"></script>
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@ar-js-org/ar.js@3.4.5/aframe/build/aframe-ar.min.js">
+</script>
  <script>
  AFRAME.registerComponent('touchscale', {
       schema: {
@@ -11,7 +12,7 @@
              var data = this.data;
              var el = this.el;
             this.el.addEventListener('click', function () {
-             el.object3D.scale.x +=0.1;
+      el.object3D.scale.x +=0.1;
 		    el.object3D.scale.y +=0.1;
 		    el.object3D.scale.z +=0.1;
 		    el.object3D.position.z -=0.05;
@@ -34,16 +35,16 @@ AFRAME.registerComponent('touchrotate', {
   </head>
   <body>
     <a-scene embedded arjs='sourceType: webcam;'>
-          <a-assets>
-          <a-asset-item id="frescaveg" src="https://raw.githubusercontent.com/JayantH2o/Maven_Github/main/Fresca%20Veg.glb"></a-asset-item>
-          </a-assets>
-		  <a-entity position="0 0 0" rotation="0 0 0" >
-         <a-entity id="box" gltf-model="#frescaveg" position="0 0 -2" rotation="0 0 0" scale="3 4 3" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: easeInQuad;"  touchscale>
-          </a-entity>
-		  </a-entity>
-    <a-camera>
-    <a-cursor></a-cursor>
-  </a-camera>
-    </a-scene>
-  </body>
+      <a-assets>
+ <a-asset-item id="frescaveg" src="https://raw.githubusercontent.com/JayantH2o/Maven_Github/main/Fresca%20Veg.glb"></a-asset-item>
+</a-assets>
+	<a-entity position="0 0 0" rotation="0 0 0" >
+ <a-entity id="box" gltf-model="#frescaveg" position="0 0 -2"rotation="0 0 0" scale="3 4 3" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: easeInQuad;" touchscale>
+ </a-entity>
+	</a-entity>
+ <a-camera>
+  <a-cursor></a-cursor>
+ </a-camera>
+  </a-scene>
+</body>
 </html>
